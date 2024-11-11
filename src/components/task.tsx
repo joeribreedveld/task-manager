@@ -12,7 +12,7 @@ export default function Task({ task }: { task: Task }) {
   return (
     <li
       key={task.id}
-      className="flex flex-col gap-3 rounded-xl border bg-white p-6"
+      className="flex flex-col gap-2 rounded-xl border bg-white p-4 sm:gap-3 sm:p-6"
     >
       <div className="flex w-full items-center justify-between">
         <Badge variant="secondary">{task.status}</Badge>

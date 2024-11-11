@@ -2,7 +2,7 @@ import Task from "@/components/task";
 
 export default function TaskList() {
   return (
-    <ul className="flex flex-col gap-4">
+    <ul className="flex flex-col gap-3 sm:gap-4">
       {Array.from({ length: 5 }).map((task, index) => (
         <Task
           key={index}
