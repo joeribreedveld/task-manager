@@ -33,7 +33,7 @@ export default function Task({ task }: { task: Task }) {
           <DropdownMenuTrigger asChild>
             <Button
               size="icon"
-              className="h-6 w-6 text-muted-foreground"
+              className="text-muted-foreground h-6 w-6"
               variant="ghost"
             >
               <EllipsisIcon />
