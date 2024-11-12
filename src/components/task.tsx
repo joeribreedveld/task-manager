@@ -28,7 +28,9 @@ export default function Task({ task }: { task: Task }) {
       className="flex flex-col gap-3 rounded-xl border bg-white p-5 sm:p-6"
     >
       <div className="flex w-full items-center justify-between">
-        <Badge variant="secondary">{task.status}</Badge>
+        <Badge variant="secondary" className="font-medium">
+          {task.status}
+        </Badge>
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button
