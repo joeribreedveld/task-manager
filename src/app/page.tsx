@@ -9,7 +9,7 @@ export default function Home() {
           <h1 className="text-lg font-semibold">Task Manager</h1>
           <Button className="text-white">New Task</Button>
         </header>
-        <main className="border-b px-4 pb-5 pt-5 sm:px-12 sm:pb-12 sm:pt-8">
+        <main className="px-4 pb-5 pt-5 sm:border-b sm:px-12 sm:pb-12 sm:pt-8">
           <TaskList />
         </main>
       </div>
