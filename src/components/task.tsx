@@ -1,4 +1,4 @@
-import { Badge } from "@/components/ui/badge";
+import Status from "@/components/status";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -28,14 +28,13 @@ export default function Task({ task }: { task: Task }) {
       className="flex flex-col gap-3 rounded-xl border bg-white p-5 sm:p-6"
     >
       <div className="flex w-full items-center justify-between">
-        <Badge variant="secondary" className="font-medium">
-          {task.status}
-        </Badge>
+        <Status status={task.status} />
+
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button
               size="icon"
-              className="text-muted-foreground h-6 w-6"
+              className="h-6 w-6 text-muted-foreground"
               variant="ghost"
             >
               <EllipsisIcon />

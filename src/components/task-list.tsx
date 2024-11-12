@@ -1,18 +1,11 @@
 import Task from "@/components/task";
+import { TTask } from "@/lib/types";
 
-export default function TaskList() {
+export default function TaskList({ tasks }: { tasks: TTask[] }) {
   return (
     <ul className="flex flex-col gap-3 sm:gap-4">
-      {Array.from({ length: 5 }).map((task, index) => (
-        <Task
-          key={index}
-          task={{
-            id: 0,
-            title:
-              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, veritatis?",
-            status: "Todo",
-          }}
-        />
+      {tasks.map((task, index) => (
+        <Task key={index} task={task} />
       ))}
     </ul>
   );
