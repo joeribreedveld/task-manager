@@ -28,7 +28,7 @@ export default function NewTask() {
       <DialogTrigger asChild>
         <Button className="text-white">New Task</Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-sm">
+      <DialogContent className="sm:max-w-md">
         <DialogHeader>
           <DialogTitle className="text-base">Create Task</DialogTitle>
           <DialogDescription>
