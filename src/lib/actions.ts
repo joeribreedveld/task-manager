@@ -1,7 +1,7 @@
 "use server";
 
 import { db } from "@/db";
-import { tasks } from "@/db/schema";
+import { tasks, TTask } from "@/db/schema";
 import { eq } from "drizzle-orm";
 import { revalidatePath } from "next/cache";
 
@@ -21,6 +21,10 @@ export async function createTask(title: string) {
   revalidatePath("/");
 }
 
-export async function updateTask(id: number, title: string, status: string) {
+export async function updateTask(
+  id: number,
+  title: string,
+  status: TTask["status"],
+) {
   return await db.update(tasks).set({ title, status }).where(eq(tasks.id, id));
 }
