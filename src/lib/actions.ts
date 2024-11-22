@@ -26,5 +26,7 @@ export async function updateTask(
   title: string,
   status: TTask["status"],
 ) {
-  return await db.update(tasks).set({ title, status }).where(eq(tasks.id, id));
+  await db.update(tasks).set({ title, status }).where(eq(tasks.id, id));
+
+  revalidatePath("/");
 }

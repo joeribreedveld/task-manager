@@ -1,4 +1,4 @@
-import Task from "./task";
+import Task from "@/components/task";
 import { TTask } from "@/db/schema";
 
 export default function TaskList({ tasks }: { tasks: TTask[] }) {

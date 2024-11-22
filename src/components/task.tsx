@@ -1,6 +1,7 @@
 "use client";
 
 import DeleteTaskDialog from "@/components/delete-task-dialog";
+import EditTaskDialog from "@/components/edit-task-dialog";
 import Status from "@/components/status";
 import { Button } from "@/components/ui/button";
 import {
@@ -15,6 +16,8 @@ import { useState } from "react";
 
 export default function Task({ task }: { task: TTask }) {
   const [isDeleteTaskDialogOpen, setIsDeleteTaskDialogOpen] = useState(false);
+  const [isEditTaskDialogOpen, setIsEditTaskDialogOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <li
@@ -24,7 +27,7 @@ export default function Task({ task }: { task: TTask }) {
       <div className="flex w-full items-center justify-between">
         <Status status={task.status} />
 
-        <DropdownMenu>
+        <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>
           <DropdownMenuTrigger asChild>
             <Button
               size="icon"
@@ -35,9 +38,19 @@ export default function Task({ task }: { task: TTask }) {
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
-            <DropdownMenuItem>Edit</DropdownMenuItem>
             <DropdownMenuItem
-              onMouseDown={() => setIsDeleteTaskDialogOpen(true)}
+              onMouseDown={() => {
+                setIsOpen(false);
+                setIsEditTaskDialogOpen(true);
+              }}
+            >
+              Edit
+            </DropdownMenuItem>
+            <DropdownMenuItem
+              onMouseDown={() => {
+                setIsOpen(false);
+                setIsDeleteTaskDialogOpen(true);
+              }}
             >
               Delete
             </DropdownMenuItem>
@@ -47,6 +60,11 @@ export default function Task({ task }: { task: TTask }) {
           id={task.id}
           isOpen={isDeleteTaskDialogOpen}
           setIsOpen={setIsDeleteTaskDialogOpen}
+        />
+        <EditTaskDialog
+          task={task}
+          isOpen={isEditTaskDialogOpen}
+          setIsOpen={setIsEditTaskDialogOpen}
         />
       </div>
       <p className="text-sm">{task.title}</p>
