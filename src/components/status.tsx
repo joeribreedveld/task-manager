@@ -1,19 +1,25 @@
 import { Badge } from "@/components/ui/badge";
-import { TTask } from "@/lib/types";
+import { TTask } from "@/db/schema";
 import { cva, VariantProps } from "class-variance-authority";
 
 const statusVariants = cva("font-medium", {
   variants: {
     status: {
-      Todo: "bg-border",
-      "In Progress": "bg-amber-100 text-amber-800",
-      Done: "bg-green-100 text-green-800",
+      todo: "bg-border",
+      "in-progress": "bg-amber-100 text-amber-800",
+      done: "bg-green-100 text-green-800",
     },
   },
   defaultVariants: {
-    status: "Todo",
+    status: "todo",
   },
 });
+
+const statusses = {
+  todo: "Todo",
+  "in-progress": "In Progress",
+  done: "Done",
+};
 
 export interface StatusProps
   extends React.HTMLAttributes<HTMLDivElement>,
@@ -22,7 +28,7 @@ export interface StatusProps
 export default function Status({ status }: { status: TTask["status"] }) {
   return (
     <Badge variant="secondary" className={statusVariants({ status })}>
-      {status}
+      {status ? statusses[status] : "Unknown Status"}
     </Badge>
   );
 }

@@ -1,3 +1,6 @@
+"use client";
+
+import DeleteTaskDialog from "@/components/delete-task-dialog";
 import Status from "@/components/status";
 import { Button } from "@/components/ui/button";
 import {
@@ -6,15 +9,13 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { TTask } from "@/db/schema";
 import { EllipsisIcon } from "lucide-react";
+import { useState } from "react";
 
-type Task = {
-  id: number;
-  title: string;
-  status: "Todo" | "In Progress" | "Done";
-};
+export default function Task({ task }: { task: TTask }) {
+  const [isDeleteTaskDialogOpen, setIsDeleteTaskDialogOpen] = useState(false);
 
-export default function Task({ task }: { task: Task }) {
   return (
     <li
       key={task.id}
@@ -35,9 +36,18 @@ export default function Task({ task }: { task: Task }) {
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
             <DropdownMenuItem>Edit</DropdownMenuItem>
-            <DropdownMenuItem>Delete</DropdownMenuItem>
+            <DropdownMenuItem
+              onMouseDown={() => setIsDeleteTaskDialogOpen(true)}
+            >
+              Delete
+            </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
+        <DeleteTaskDialog
+          id={task.id}
+          isOpen={isDeleteTaskDialogOpen}
+          setIsOpen={setIsDeleteTaskDialogOpen}
+        />
       </div>
       <p className="text-sm">{task.title}</p>
     </li>

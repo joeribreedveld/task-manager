@@ -1,5 +1,5 @@
-import Task from "@/components/task";
-import { TTask } from "@/lib/types";
+import Task from "./task";
+import { TTask } from "@/db/schema";
 
 export default function TaskList({ tasks }: { tasks: TTask[] }) {
   return (
