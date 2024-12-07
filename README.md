@@ -1,4 +1,6 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Task Manager
+
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app). It is a simple task management application that allows users to create, update, and delete tasks.
 
 ## Getting Started
 
@@ -16,9 +18,28 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+You can start managing your tasks by navigating to the homepage. The page auto-updates as you edit the files.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Features
+
+- **Create Tasks**: Add new tasks to keep track of your work.
+- **Update Tasks**: Edit the title and status of existing tasks.
+- **Delete Tasks**: Remove tasks that are no longer needed.
+- **Task Status**: Tasks can have statuses like "Todo", "In Progress", and "Done".
+
+## Project Structure
+
+- `.next/` - Contains the build output and cache for Next.js.
+- `drizzle/` - Configuration and files related to Drizzle.
+- `public/` - Static assets like images, fonts, etc.
+- `src/` - The main source code for the application.
+  - `components/` - React components used in the application.
+  - `db/` - Database schema and configuration.
+  - `lib/` - Utility functions and server actions.
+  - `app/` - Application-specific files like global styles and layout.
+- `tailwind.config.ts` - Configuration file for Tailwind CSS.
+- `next.config.ts` - Configuration file for Next.js.
+- `tsconfig.json` - TypeScript configuration file.
 
 ## Learn More
 
